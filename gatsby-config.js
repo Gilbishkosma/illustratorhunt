@@ -5,5 +5,29 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  plugins: [
+      `gatsby-plugin-emotion`,
+      `gatsby-transformer-sharp`,
+      `gatsby-plugin-sharp`,
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `pages`,
+          path: `src/pages/`,
+        },
+      },
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `images`,
+          path: `src/images/`,
+        },
+      },
+      {
+        resolve: `gatsby-plugin-typography`,
+        options: {
+          pathToConfigModule: `src/utils/typography`,
+        },
+      },
+    ]
 }
