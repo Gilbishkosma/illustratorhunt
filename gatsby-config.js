@@ -19,6 +19,13 @@ module.exports = {
       {
         resolve: `gatsby-source-filesystem`,
         options: {
+          name: `posts`,
+          path: `src/posts/`,
+        },
+      },
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
           name: `images`,
           path: `src/images/`,
         },
@@ -27,6 +34,20 @@ module.exports = {
         resolve: `gatsby-plugin-typography`,
         options: {
           pathToConfigModule: `src/utils/typography`,
+        },
+      },
+      {
+        resolve: `gatsby-plugin-mdx`,
+        options: {
+          gatsbyRemarkPlugins: [
+            {
+              resolve: `gatsby-remark-images`, //it processes images in markdown so they can be used in the production build.
+              options: {
+                maxWidth: 1035,
+                sizeByPixelDensity: true,
+              },
+            },
+          ],
         },
       },
     ]
