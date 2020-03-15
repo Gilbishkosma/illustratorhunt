@@ -18,7 +18,8 @@ const LinkBlock = styled.div`
 
 export default ({data : {file: image}}) => {
     return <>
-            <Layout style={{display:'flex',flexDirection:'row'}}>
+            <Layout>
+                  <div style={{display:'flex',paddingTop:"0px",justifyContent:'center',alignItems:'center',flexWrap:'wrap'}}>
                     <Section>
                     <div>
                      <h1 style={{marginTop:"0px"}}>Lorem Lipsum XYZ</h1>
@@ -40,6 +41,7 @@ export default ({data : {file: image}}) => {
                     </div>
                     </Section>
                     <Img fluid={image.childImageSharp.fluid} alt="" style={{width:'700px',order:1}}  />
+                    </div>
             </Layout>
            </>
 }
