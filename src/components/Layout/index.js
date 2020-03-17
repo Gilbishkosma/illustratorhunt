@@ -3,14 +3,13 @@ import Header from './header'
 import styled from "@emotion/styled"
 
 const Page = styled.div`
-  padding: 1.5rem calc((100vw - 1000px) / 2);
   margin:10px;
 `
 
-const Layout = ({children}) => {
+const Layout = ({children,width=1000}) => {
     return <>
      <Header />
-     <Page>
+     <Page style={{padding: `1.5rem calc((100vw - ${width}px) / 2)`}}>
      {children}
      </Page>
     </>

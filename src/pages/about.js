@@ -6,7 +6,7 @@ import Img from 'gatsby-image';
 
 
 const Section = styled.div`    
-   @media(max-width:1100px){
+   @media(max-width:1210px){
         order:2
     };
 `
@@ -18,7 +18,7 @@ const LinkBlock = styled.div`
 
 export default ({data : {file: image}}) => {
     return <>
-            <Layout>
+            <Layout width={1500}>
                   <div style={{display:'flex',paddingTop:"0px",justifyContent:'center',alignItems:'center',flexWrap:'wrap'}}>
                     <Section>
                     <div>
@@ -40,7 +40,7 @@ export default ({data : {file: image}}) => {
                         </LinkBlock>
                     </div>
                     </Section>
-                    <Img fluid={image.childImageSharp.fluid} alt="" style={{width:'700px',order:1}}  />
+                    <Img fluid={image.childImageSharp.fluid} alt="" style={{width:'800px',order:1}}  />
                     </div>
             </Layout>
            </>
