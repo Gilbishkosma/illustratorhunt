@@ -2,7 +2,7 @@ import React from "react"
 import Layout from '../components/Layout'
 import styled from "@emotion/styled"
 import { graphql } from "gatsby"
-
+import Img from 'gatsby-image';
 
 const Description = styled.div`
     width:100%;
@@ -42,16 +42,15 @@ const Content = styled.div`
     }
 `
 
-const ImageCard = styled.div`
-    width:450px;
+const ImageCard = styled(Img)`
+    width:350px;
     height:350px;
-    background-image: url('https://www.metalclock.in/static/media/award.fceada8e.svg');
     background-size:contain;
     background-repeat:no-repeat;
     background-position:center;
     position:relative;
-    top:-60px;
-    left:-150px;
+    top:-50px;
+    left:-120px;
     @media(max-width:450px){
         top:-100px;
         left:50%;
@@ -65,7 +64,7 @@ const ImageCard = styled.div`
 const Tags = styled.div`
     display:flex;
     flex-wrap:wrap;
-    width:150px;
+    width:180px;
     margin-top:30px;
     
     @media(max-width:450px){
@@ -89,10 +88,11 @@ const Links = styled.div`
     display:flex;
     justify-content:space-between;
     width:170px;
-    margin-top:30px;
+    margin-top:50px;
 
     @media(max-width:450px){
         width:100%;
+        margin-top:30px;
         justify-content:space-around;   
     }
 `
@@ -108,22 +108,25 @@ const Link = styled.a`
 
 export default ({data: {allMdx:post}}) => {
     return <>
-        <Layout width={1300}>
-        <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap'}}>
+        <Layout width={1500}>
+        <div style={{display:'flex',justifyContent:'space-evenly',flexWrap:'wrap'}}>
            {
               post.nodes.map((item,index) => {
-                  return <Description>
-                            <ImageCard />
+                  console.log(item.frontmatter.show)
+                  return <Description key={index}>
+                            <ImageCard fluid={item.frontmatter.show.childImageSharp.fluid} alt="" />
                             <Content>
-                                <h1 style={{marginTop:'70px'}}>Icons8</h1>
+                            <h1 style={{marginTop:'70px'}}>{item.frontmatter.site}</h1>
                                <Tags>
-                                <Tag>Free</Tag>
-                                <Tag>Paid</Tag>
-                                <Tag>OpenSource</Tag>
+                                {
+                                   item.frontmatter.tags.map((tag,index) => {
+                                   return <Tag key={index}>{tag}</Tag>  
+                                   }) 
+                                }  
                                 </Tags>
                                 <Links>
-                                <Link href="#">Link</Link>
-                                <Link href="#">More..</Link>
+                                <Link href={item.frontmatter.siteUrl} target="_blank">Link</Link> 
+                                <Link href={item.frontmatter.slug}>More...</Link> 
                                 </Links>                            
                             </Content>
                          </Description>
@@ -141,8 +144,17 @@ export const query = graphql`
         allMdx {
             nodes {
               frontmatter {
-                title
                 slug
+                site
+                siteUrl                
+                tags
+                show{
+                    childImageSharp {
+                        fluid{
+                   ...GatsbyImageSharpFluid_tracedSVG
+                    } 
+                  } 
+                }
               }
             }
           }

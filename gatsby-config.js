@@ -31,6 +31,13 @@ module.exports = {
         },
       },
       {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `postimages`,
+          path: `src/posts/`,
+        },
+      },
+      {
         resolve: `gatsby-plugin-typography`,
         options: {
           pathToConfigModule: `src/utils/typography`,
