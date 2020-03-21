@@ -22,8 +22,9 @@ export default ({data : {file: image}}) => {
                   <div style={{display:'flex',paddingTop:"0px",justifyContent:'center',alignItems:'center',flexWrap:'wrap'}}>
                     <Section>
                     <div>
-                     <h1 style={{marginTop:"0px"}}>Lorem Lipsum XYZ</h1>
-                     <p>asd ads asd asdasd asdasd asdasd asdasdsad</p>
+                     <h1 style={{marginTop:"0px"}}>Hii, i am Gilbish Kosma</h1>
+                     <p>I developed <b>IllustrationHunt</b> inorder to list<br/> some of my favorite illustration sites.<br/>Hope you will like it.</p>
+                     <p>Email me at <a href="mailto:gilbish@gil20.me" style={{color:"#0c9abb"}}>gilbeeshkosma15@gmail.com</a></p>
                     </div>
                     <div>
                         <LinkBlock>

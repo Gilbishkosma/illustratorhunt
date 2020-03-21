@@ -3,6 +3,7 @@ import Layout from '../components/Layout'
 import styled from "@emotion/styled"
 import { graphql } from "gatsby"
 import Img from 'gatsby-image';
+import {Link} from 'gatsby';
 
 const Description = styled.div`
     width:100%;
@@ -26,12 +27,20 @@ const Description = styled.div`
     }
 
 `
+const Banner = styled.div`
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:calc(100vh - 150px);
+    flex-wrap:wrap;
+    `
 
 const Content = styled.div`
     position:relative;
     bottom:400px;
     height:100%;
-    left:12em;
+    left:11em;
 
     @media(max-width:450px){
      bottom:150px;
@@ -50,7 +59,7 @@ const ImageCard = styled(Img)`
     background-position:center;
     position:relative;
     top:-50px;
-    left:-120px;
+    left:-140px;
     @media(max-width:450px){
         top:-100px;
         left:50%;
@@ -78,7 +87,7 @@ const Tag = styled.p`
     padding:5px;
     border-radius:10px;
     border:1px solid #81dfe3;
-
+    color:black;
     &:hover{
         border:1px solid #3481fb;
     }
@@ -97,8 +106,8 @@ const Links = styled.div`
     }
 `
 
-const Link = styled.a`
-    color:#7995ea;
+const CustomLink = styled.a`
+    color:#1ca086;
     background-color:#fff;
     background-image:none;
     &:hover{
@@ -106,14 +115,22 @@ const Link = styled.a`
     }
 `
 
-export default ({data: {allMdx:post}}) => {
+export default ({data: {allMdx:post,file:bannerimg}}) => {
+    console.log(bannerimg)
     return <>
         <Layout width={1500}>
-        <div style={{display:'flex',justifyContent:'space-evenly',flexWrap:'wrap'}}>
+        <Banner>
+            <Img alt="" fluid={bannerimg.childImageSharp.fluid} style={{maxWidth:'500px',width:'100%'}} />
+            <h1 style={{marginTop:'10px'}}>Illustration Hunt</h1>
+            <p>One Place to look for sites offering free illustrations.</p>
+        </Banner>
+        <h1 style={{textAlign:'center'}}>Illustration Sites</h1>
+       <div style={{display:'flex',justifyContent:'space-evenly',flexWrap:'wrap',marginTop:'60px'}}>
            {
               post.nodes.map((item,index) => {
                   console.log(item.frontmatter.show)
                   return <Description key={index}>
+                            <Link to={item.frontmatter.slug}>
                             <ImageCard fluid={item.frontmatter.show.childImageSharp.fluid} alt="" />
                             <Content>
                             <h1 style={{marginTop:'70px'}}>{item.frontmatter.site}</h1>
@@ -124,11 +141,11 @@ export default ({data: {allMdx:post}}) => {
                                    }) 
                                 }  
                                 </Tags>
-                                <Links>
-                                <Link href={item.frontmatter.siteUrl} target="_blank">Link</Link> 
-                                <Link href={item.frontmatter.slug}>More...</Link> 
+                                <Links> 
+                                <CustomLink href={item.frontmatter.slug}>Showcase -></CustomLink> 
                                 </Links>                            
                             </Content>
+                            </Link>
                          </Description>
               }) 
            }
@@ -141,7 +158,7 @@ export default ({data: {allMdx:post}}) => {
 
 export const query = graphql`
     query{
-        allMdx {
+        allMdx(sort: {fields: frontmatter___rating, order: ASC}){
             nodes {
               frontmatter {
                 slug
@@ -158,6 +175,12 @@ export const query = graphql`
               }
             }
           }
+          file(sourceInstanceName: {eq: "images"}, name: {eq: "1"}) {
+            childImageSharp {
+                fluid{
+           ...GatsbyImageSharpFluid_tracedSVG
+            } 
+          }}
     }
 `
 
