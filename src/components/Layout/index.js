@@ -9,7 +9,7 @@ const Page = styled.div`
 const Layout = ({children,width=1000}) => {
     return <>
      <Header />
-     <Page style={{padding: `1.5rem calc((100vw - ${width}px) / 2)`}}>
+     <Page style={{padding: `0px 1.5rem calc((100vw - ${width}px) / 2)`}}>
      {children}
      </Page>
     </>

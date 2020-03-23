@@ -19,7 +19,7 @@ const LinkBlock = styled.div`
 export default ({data : {file: image}}) => {
     return <>
             <Layout width={1500}>
-                  <div style={{display:'flex',paddingTop:"0px",justifyContent:'center',alignItems:'center',flexWrap:'wrap'}}>
+                  <div style={{display:'flex',paddingTop:"0px",justifyContent:'end',alignItems:'center',flexWrap:'wrap'}}>
                     <Section>
                     <div>
                      <h1 style={{marginTop:"0px"}}>Hii, i am Gilbish Kosma</h1>

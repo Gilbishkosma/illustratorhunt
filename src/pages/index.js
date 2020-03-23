@@ -40,13 +40,15 @@ const Content = styled.div`
     position:relative;
     bottom:400px;
     height:100%;
+    width:220px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
     left:11em;
 
     @media(max-width:450px){
      bottom:150px;
-     display:flex;
-     flex-direction:column;
-     align-items:center;
+     width:inherit;
      left:0px;   
     }
 `
@@ -59,7 +61,7 @@ const ImageCard = styled(Img)`
     background-position:center;
     position:relative;
     top:-50px;
-    left:-140px;
+    left:-90px;
     @media(max-width:450px){
         top:-100px;
         left:50%;
@@ -73,6 +75,7 @@ const ImageCard = styled(Img)`
 const Tags = styled.div`
     display:flex;
     flex-wrap:wrap;
+    justify-content:center;
     width:180px;
     margin-top:30px;
     
@@ -95,7 +98,7 @@ const Tag = styled.p`
 
 const Links = styled.div`
     display:flex;
-    justify-content:space-between;
+    justify-content:space-around;
     width:170px;
     margin-top:50px;
 
@@ -121,19 +124,19 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
         <Layout width={1500}>
         <Banner>
             <Img alt="" fluid={bannerimg.childImageSharp.fluid} style={{maxWidth:'500px',width:'100%'}} />
-            <h1 style={{marginTop:'10px'}}>Illustration Hunt</h1>
+            <div>
+            <h1 style={{marginTop:'10px',textAlign:'center'}}>Illustration Hunt</h1>
             <p>One Place to look for sites offering free illustrations.</p>
+            </div>
         </Banner>
-        <h1 style={{textAlign:'center'}}>Illustration Sites</h1>
-       <div style={{display:'flex',justifyContent:'space-evenly',flexWrap:'wrap',marginTop:'60px'}}>
+        <h1 style={{textAlign:'center',marginTop:'10%'}}>Illustration Sites</h1>
+       <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap',marginTop:'60px'}}>
            {
               post.nodes.map((item,index) => {
-                  console.log(item.frontmatter.show)
                   return <Description key={index}>
-                            <Link to={item.frontmatter.slug}>
                             <ImageCard fluid={item.frontmatter.show.childImageSharp.fluid} alt="" />
                             <Content>
-                            <h1 style={{marginTop:'70px'}}>{item.frontmatter.site}</h1>
+                            <h2 style={{marginTop:'70px'}}>{item.frontmatter.site}</h2>
                                <Tags>
                                 {
                                    item.frontmatter.tags.map((tag,index) => {
@@ -145,7 +148,6 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
                                 <CustomLink href={item.frontmatter.slug}>Showcase -></CustomLink> 
                                 </Links>                            
                             </Content>
-                            </Link>
                          </Description>
               }) 
            }
