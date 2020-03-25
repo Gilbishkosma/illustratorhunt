@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import styled from "@emotion/styled"
 import { graphql } from "gatsby"
 import Img from 'gatsby-image';
-
+import SEO from "../components/seo"
 
 const Section = styled.div`    
    @media(max-width:1210px){
@@ -19,7 +19,8 @@ const LinkBlock = styled.div`
 export default ({data : {file: image}}) => {
     return <>
             <Layout width={1500}>
-                  <div style={{display:'flex',paddingTop:"0px",justifyContent:'end',alignItems:'center',flexWrap:'wrap'}}>
+            <SEO title="About Me" description="About me page of Illustration Hunt." />
+                  <div style={{display:'flex',paddingTop:"0px",justifyContent:'center',alignItems:'center',flexWrap:'wrap'}}>
                     <Section>
                     <div>
                      <h1 style={{marginTop:"0px"}}>Hii, i am Gilbish Kosma</h1>

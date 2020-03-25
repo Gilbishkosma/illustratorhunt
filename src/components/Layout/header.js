@@ -2,6 +2,8 @@ import React from 'react';
 import styled from "@emotion/styled"
 import { css } from "@emotion/core"
 import {Link} from 'gatsby';
+import Img from 'gatsby-image';
+import { useStaticQuery, graphql } from "gatsby"
 
 const NavLink = styled(Link)`
       color:#222;
@@ -23,24 +25,38 @@ const NavLink = styled(Link)`
 
       `;
 
-const Header = () => (
-    <header
+const Header = () => {
+  const data = useStaticQuery(graphql`
+    query{
+       file(sourceInstanceName: {eq: "images"}, name: {eq: "icon"}) {
+            childImageSharp {
+                fluid{
+           ...GatsbyImageSharpFluid_tracedSVG
+            } 
+        }
+    }
+  }
+  `)
+  return <header
     css={css`
         background:#fff;
         border-bottom:1px solid #ddd;
         display:flex;
         justify-content:space-between;
         flex-wrap:wrap;
-        padding: 1.5rem calc((100vw - 1000px) / 2); /* for header both side equal margin,this will be of equal width of main */
+        padding: 0.5rem calc((100vw - 1000px) / 2); /* for header both side equal margin,this will be of equal width of main */
     `}
-    >
-        <NavLink to="/" fontWeight="bold">Illustration Hunt</NavLink>
-        <nav css={css`margin-top:0;display:flex;flex-wrap:wrap;`}>
+    >    
+        <div style={{display:"flex"}}>
+        <Img fluid={data.file.childImageSharp.fluid} alt="" style={{padding:'0px',width:'70px'}} />
+        <NavLink to="/" style={{alignSelf:'center',padding:'0px'}}>IllustrationHunt</NavLink>
+        </div>
+        <nav css={css`margin-top:0;display:flex;flex-wrap:wrap;align-items:center`}>
             <NavLink to="/" activeClassName="current-page">Home</NavLink>
             <NavLink to="/about" activeClassName="current-page">About</NavLink>
         </nav>
     </header>
-)
+}
 
 export default Header;
 

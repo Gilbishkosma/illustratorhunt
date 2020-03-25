@@ -1,24 +1,27 @@
 ---
+title: Icons8 
 slug: icons8
 site: Icons8
 show: ./images/show.png
 siteUrl: https://icons8.com/ouch
+description: Free Vector Illustrations to Class up Your Project.
 tags: [free,paid]
-rating: 3 
+rating: 9
 ---
 
 
 
 <div style={{marginLeft:'20px'}}>
-<h1>Icons8</h1>
-<p>Free Vector Illustrations to Class up Your Project.</p>
+<h1>{props.frontmatter.title}</h1>
+<p>{props.frontmatter.description}</p>
 <div style={{display:'flex',marginBottom:'20px'}}>
     <Tag>Free</Tag>
     <Tag>Paid</Tag>
 </div>
-Website: <a href="https://icons8.com/ouch" target="_blank">https://icons8.com/ouch</a>
+Website: <a href={props.frontmatter.siteUrl} target="_blank">{props.frontmatter.siteUrl}</a>
 <h4 style={{paddingTop:'10px'}}>Examples:</h4>
 </div>
+
 
 <div style="display:flex;flex-wrap:wrap;justify-content:space-around;">
 <div style="width:400px;border:1px solid #e1e1e1;margin-top:40px" className="imageCards">
@@ -30,7 +33,7 @@ Website: <a href="https://icons8.com/ouch" target="_blank">https://icons8.com/ou
 <div style="width:400px;border:1px solid #e1e1e1;margin-top:40px" className="imageCards">
    <img src="./images/3.png" alt="" />
 </div>
-<div style="width:400px;border:1px solid #e1e1e1;margin-top:4px" className="imageCards">
+<div style="width:400px;border:1px solid #e1e1e1;margin-top:40px" className="imageCards">
    <img src="./images/6.png" alt="" />
 </div>
 <div style="width:400px;border:1px solid #e1e1e1;margin-top:40px" className="imageCards">

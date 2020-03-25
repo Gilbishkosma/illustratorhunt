@@ -1,22 +1,24 @@
 ---
+title: Control 
 slug: control
 site: Control
 show: ./images/show.png
 siteUrl: https://control.rocks/
+description: Combo set of 108 customizable illustrations.
 tags: [free,paid]
-rating: 3
+rating: 15
 ---
 
 
 
 <div style={{marginLeft:'20px'}}>
-<h1>Control</h1>
-<p>Combo set of 108 customizable illustrations.</p>
+<h1>{props.frontmatter.title}</h1>
+<p>{props.frontmatter.description}</p>
 <div style={{display:'flex',marginBottom:'20px'}}>
     <Tag>Free</Tag>
     <Tag>Paid</Tag>
 </div>
-Website: <a href="https://control.rocks/" target="_blank">https://control.rocks/</a>
+Website: <a href={props.frontmatter.siteUrl} target="_blank">{props.frontmatter.siteUrl}</a>
 <h4 style={{paddingTop:'10px'}}>Examples:</h4>
 </div>
 
@@ -29,7 +31,7 @@ Website: <a href="https://control.rocks/" target="_blank">https://control.rocks/
 </div>
 <div style="width:400px;border:1px solid #e1e1e1;margin-top:40px" className="imageCards">
    <img src="./images/3.png" alt="" />
-</div>
+</div>	
 <div style="width:400px;border:1px solid #e1e1e1;margin-top:40px" className="imageCards">
    <img src="./images/4.png" alt="" />
 </div>

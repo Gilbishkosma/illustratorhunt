@@ -1,0 +1,44 @@
+---
+title: Delesign
+slug: delesign
+site: Delesign
+show: ./images/show.png
+siteUrl: https://delesign.com/free-designs/graphics
+description: Use our royalty-free designs for your website, social media, blog, email newsletters, and more.
+tags: [free]
+rating: 6
+---
+
+
+
+<div style={{marginLeft:'20px'}}>
+<h1>{props.frontmatter.title}</h1>
+<p>{props.frontmatter.description}</p>
+<div style={{display:'flex',marginBottom:'20px'}}>
+    <Tag>Free</Tag>
+    <Tag>Paid</Tag>
+</div>
+Website: <a href={props.frontmatter.siteUrl} target="_blank">{props.frontmatter.siteUrl}</a>
+<h4 style={{paddingTop:'10px'}}>Examples:</h4>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;justify-content:space-around;">
+<div style="width:400px;border:1px solid #e1e1e1;margin-top:40px" className="imageCards">
+   <img src="./images/1.png" alt="" />
+</div>
+<div style="width:400px;border:1px solid #e1e1e1;margin-top:40px" className="imageCards">
+   <img src="./images/2.png" alt="" />
+</div>
+<div style="width:400px;border:1px solid #e1e1e1;margin-top:40px" className="imageCards">
+   <img src="./images/3.png" alt="" />
+</div>
+<div style="width:400px;border:1px solid #e1e1e1;margin-top:40px" className="imageCards">
+   <img src="./images/6.png" alt="" />
+</div>
+<div style="width:400px;border:1px solid #e1e1e1;margin-top:40px" className="imageCards">
+   <img src="./images/5.png" alt="" />
+</div>
+<div style="width:400px;border:1px solid #e1e1e1;margin-top:40px" className="imageCards">
+   <img src="./images/4.png" alt="" />
+</div>
+</div>

@@ -4,6 +4,7 @@ import { MDXProvider } from "@mdx-js/react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import styled from "@emotion/styled"
+import SEO from "../components/seo"
 
 const Tag = styled.p`
     margin:5px;
@@ -23,8 +24,14 @@ export const query = graphql`
     mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         site
+        slug
+        title,
+        description,
+        tags,
+        siteUrl
       }
       body
+      excerpt
     }
   }
 `
@@ -32,8 +39,9 @@ export const query = graphql`
 export default ({ data: { mdx: post } }) => {
   return (
     <Layout width={1300}>
+      <SEO title={post.frontmatter.title} description={post.excerpt} />
       <MDXProvider components={shortcodes}>
-          <MDXRenderer>{post.body}</MDXRenderer>
+          <MDXRenderer frontmatter={post.frontmatter}>{post.body}</MDXRenderer>
       </MDXProvider>
     </Layout>
   )

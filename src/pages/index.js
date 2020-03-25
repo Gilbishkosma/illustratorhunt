@@ -4,6 +4,7 @@ import styled from "@emotion/styled"
 import { graphql } from "gatsby"
 import Img from 'gatsby-image';
 import {Link} from 'gatsby';
+import SEO from "../components/seo"
 
 const Description = styled.div`
     width:100%;
@@ -122,6 +123,7 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
     console.log(bannerimg)
     return <>
         <Layout width={1500}>
+        <SEO title="Home" description="One Place to look for sites offering free illustrations." />
         <Banner>
             <Img alt="" fluid={bannerimg.childImageSharp.fluid} style={{maxWidth:'500px',width:'100%'}} />
             <div>

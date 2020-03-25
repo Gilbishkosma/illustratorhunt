@@ -5,17 +5,15 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: `Illustration Hunt`,
+    description: `One place to look for websites offering free illustrations....`,
+    author: `Gilbish Kosma`,
+  },
   plugins: [
       `gatsby-plugin-emotion`,
       `gatsby-transformer-sharp`,
       `gatsby-plugin-sharp`,
-      {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          name: `pages`,
-          path: `src/pages/`,
-        },
-      },
       {
         resolve: `gatsby-source-filesystem`,
         options: {
@@ -50,12 +48,41 @@ module.exports = {
             {
               resolve: `gatsby-remark-images`, //it processes images in markdown so they can be used in the production build.
               options: {
-                maxWidth: 1035,
-                sizeByPixelDensity: true,
+                maxWidth: 1000,
               },
             },
           ],
         },
       },
+      {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: "UA-158643512-2",
+      },
+      },
+      {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `IllustrationHunt`,
+        short_name: `IllustrationHunt`,
+        start_url: `/`,
+        background_color: `#6b37bf`,
+        theme_color: `#6b37bf`,
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: `standalone`,
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+      },
+      },
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `pages`,
+          path: `src/pages/`,
+        },
+      },
+      `gatsby-plugin-offline`,
+      `gatsby-plugin-react-helmet`,
     ]
 }

@@ -1,21 +1,23 @@
 ---
+title: IllustrationsCo 
 slug: illustrationsco
 site: IllustrationsCo
 show: ./images/show.png
 siteUrl: https://illlustrations.co/
+description: Open Source Illustrations Kit.
 tags: [opensource]
-rating: 3
+rating: 2
 ---
 
 
 
 <div style={{marginLeft:'20px'}}>
-<h1>Illustrations co</h1>
-<p>Open Source Illustrations Kit.</p>
+<h1>{props.frontmatter.title}</h1>
+<p>{props.frontmatter.description}</p>
 <div style={{display:'flex',marginBottom:'20px'}}>
     <Tag>OpenSource</Tag>
 </div>
-Website: <a href="https://illlustrations.co/" target="_blank">https://illlustrations.co/</a>
+Website: <a href={props.frontmatter.siteUrl} target="_blank">{props.frontmatter.siteUrl}</a>
 <h4 style={{paddingTop:'10px'}}>Examples:</h4>
 </div>
 

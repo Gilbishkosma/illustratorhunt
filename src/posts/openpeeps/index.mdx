@@ -1,21 +1,23 @@
 ---
+title: Openpeeps
 slug: openpeeps
 site: OpenPeeps
 show: ./images/show.png
 siteUrl: https://www.openpeeps.com/
+description: A hand-drawn illustration library.
 tags: [free]
-rating: 2
+rating: 5
 ---
 
 
 <div style={{marginLeft:'20px'}}>
-<h1>OpenPeeps</h1>
-<p>A hand-drawn illustration library.</p>
+<h1>{props.frontmatter.title}</h1>
+<p>{props.frontmatter.description}</p>
 <div style={{display:'flex',marginBottom:'20px'}}>
     <Tag>Free</Tag>
     <Tag>Paid</Tag>
 </div>
-Website: <a href="https://www.openpeeps.com/" target="_blank">https://www.openpeeps.com/</a>
+Website: <a href={props.frontmatter.siteUrl} target="_blank">{props.frontmatter.siteUrl}</a>
 <h4 style={{paddingTop:'10px'}}>Examples:</h4>
 </div>
 
