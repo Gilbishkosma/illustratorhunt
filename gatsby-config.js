@@ -59,6 +59,7 @@ module.exports = {
       options: {
         // The property ID; the tracking code won't be generated without it
         trackingId: "UA-158643512-2",
+        head:true
       },
       },
       {

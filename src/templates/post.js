@@ -23,7 +23,6 @@ export const query = graphql`
   query($slug: String!) {
     mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
-        site
         slug
         title,
         description,
@@ -40,6 +39,17 @@ export default ({ data: { mdx: post } }) => {
   return (
     <Layout width={1300}>
       <SEO title={post.frontmatter.title} description={post.excerpt} />
+      <div style={{marginLeft:'20px'}}>
+      <h1>{post.frontmatter.title}</h1>
+      <p>{post.frontmatter.description}</p>
+      <div style={{display:'flex',marginBottom:'20px'}}>
+        {post.frontmatter.tags.map((item,index) => {
+         return <Tag key={index}>{item}</Tag>
+        })}
+      </div>
+      Website: <a href={post.frontmatter.siteUrl} target="_blank">{post.frontmatter.siteUrl}</a>
+      <h4 style={{paddingTop:'10px'}}>Examples:</h4>
+      </div>
       <MDXProvider components={shortcodes}>
           <MDXRenderer frontmatter={post.frontmatter}>{post.body}</MDXRenderer>
       </MDXProvider>

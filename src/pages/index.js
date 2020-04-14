@@ -138,7 +138,7 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
                   return <Description key={index}>
                             <ImageCard fluid={item.frontmatter.show.childImageSharp.fluid} alt="" />
                             <Content>
-                            <h2 style={{marginTop:'70px'}}>{item.frontmatter.site}</h2>
+                            <h2 style={{marginTop:'70px'}}>{item.frontmatter.title}</h2>
                                <Tags>
                                 {
                                    item.frontmatter.tags.map((tag,index) => {
@@ -166,7 +166,7 @@ export const query = graphql`
             nodes {
               frontmatter {
                 slug
-                site
+                title
                 siteUrl                
                 tags
                 show{
