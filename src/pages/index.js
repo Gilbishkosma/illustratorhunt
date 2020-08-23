@@ -102,7 +102,6 @@ const Links = styled.div`
     justify-content:space-around;
     width:170px;
     margin-top:50px;
-
     @media(max-width:450px){
         width:100%;
         margin-top:30px;
