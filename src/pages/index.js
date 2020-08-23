@@ -129,20 +129,13 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
             <p>One Place to look for sites offering free illustrations.</p>
             </div>
         </Banner>
-        
-   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- longRectangle -->
-<ins class="adsbygoogle"
-     style="display:block"
+
+<ins className="adsbygoogle"
+     style={{display:"block",marginTop:'10%'}}
      data-ad-client="ca-pub-2352333389468696"
      data-ad-slot="2018907147"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-<script dangerouslySetInnerHTML={{
-        __html: `
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        `
-      }} />
 
 
         <h1 style={{textAlign:'center',marginTop:'10%'}}>Illustration Sites</h1>
@@ -169,19 +162,12 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
            }
            </div>
 
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- longRectangle -->
-<ins class="adsbygoogle"
-     style="display:block"
+<ins className="adsbygoogle"
+     style={{display:"block",marginTop:'10%'}}
      data-ad-client="ca-pub-2352333389468696"
      data-ad-slot="2018907147"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-<script dangerouslySetInnerHTML={{
-        __html: `
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        `
-      }} />
         </Layout>
     </>
 }
