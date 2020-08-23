@@ -5,6 +5,8 @@ import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import styled from "@emotion/styled"
 import SEO from "../components/seo"
+import AdSense from '../components/Adsense'
+
 
 const Tag = styled.p`
     margin:5px;
@@ -49,12 +51,7 @@ export default ({ data: { mdx: post } }) => {
       </div>
       Website: <a href={post.frontmatter.siteUrl} target="_blank">{post.frontmatter.siteUrl}</a>
 
-       <ins className="adsbygoogle"
-     style={{display:'block',marginTop:'40px',marginBottom:'40px'}}
-     data-ad-client="ca-pub-2352333389468696"
-     data-ad-slot="2018907147"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+     <AdSense currentPath="4" slot="4183897871" />
 
 
       <h4 style={{paddingTop:'10px'}}>Examples:</h4>
