@@ -21,11 +21,14 @@ export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
       type="text/javascript"
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
     />,
-     <script
+    <script
       key={`gatsby-plugin-google-adsense`}
       dangerouslySetInnerHTML={{
         __html: `
-        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "${pluginOptions.googleAdClientId}",
+            enable_page_level_ads: true
+        });
         `
       }}
     />
