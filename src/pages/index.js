@@ -138,9 +138,12 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
      data-ad-slot="2018907147"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<script dangerouslySetInnerHTML={{
+        __html: `
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        `
+      }} />
+
 
         <h1 style={{textAlign:'center',marginTop:'10%'}}>Illustration Sites</h1>
        <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap',marginTop:'60px'}}>
@@ -174,9 +177,11 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
      data-ad-slot="2018907147"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<script dangerouslySetInnerHTML={{
+        __html: `
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        `
+      }} />
         </Layout>
     </>
 }
