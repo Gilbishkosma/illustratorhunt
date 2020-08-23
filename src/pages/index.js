@@ -130,12 +130,17 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
             </div>
         </Banner>
         
-    <ins className="adsbygoogle"
-     style={{display:'block',marginTop:'10%'}}
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- longRectangle -->
+<ins class="adsbygoogle"
+     style="display:block"
      data-ad-client="ca-pub-2352333389468696"
      data-ad-slot="2018907147"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
         <h1 style={{textAlign:'center',marginTop:'10%'}}>Illustration Sites</h1>
        <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap',marginTop:'60px'}}>
@@ -161,12 +166,17 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
            }
            </div>
 
-           <ins className="adsbygoogle"
-     style={{display:'block',marginTop:'10%'}}
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- longRectangle -->
+<ins class="adsbygoogle"
+     style="display:block"
      data-ad-client="ca-pub-2352333389468696"
      data-ad-slot="2018907147"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
         </Layout>
     </>
 }
