@@ -131,7 +131,7 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
             </div>
         </Banner>
 
-        <RectangleAdd />
+        <RectangleAdd currentPath="1" />
 
 
         <h1 style={{textAlign:'center',marginTop:'10%'}}>Illustration Sites</h1>
@@ -157,6 +157,9 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
               }) 
            }
            </div>
+
+           <RectangleAdd currentPath="2" />
+
         </Layout>
     </>
 }
