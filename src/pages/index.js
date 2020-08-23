@@ -157,8 +157,6 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
               }) 
            }
            </div>
-
-           <RectangleAdd />
         </Layout>
     </>
 }

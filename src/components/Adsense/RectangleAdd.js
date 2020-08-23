@@ -5,11 +5,6 @@ import React , {useEffect} from 'react';
 
 
 const RectangleAdd = () => {
-	
-	useEffect(() => {
-		(window.adsbygoogle = window.adsbygoogle || []).push({});
-	})
-
 	return (
 		<div>
 			<ins className="adsbygoogle"
