@@ -25,7 +25,10 @@ export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
       key={`gatsby-plugin-google-adsense`}
       dangerouslySetInnerHTML={{
         __html: `
-        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "${pluginOptions.googleAdClientId}",
+            enable_page_level_ads: true
+        });
         `
       }}
     />
