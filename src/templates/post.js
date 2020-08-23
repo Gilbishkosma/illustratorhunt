@@ -50,15 +50,14 @@ export default ({ data: { mdx: post } }) => {
         })}
       </div>
       Website: <a href={post.frontmatter.siteUrl} target="_blank">{post.frontmatter.siteUrl}</a>
-
-     <AdSense currentPath="4" slot="4183897871" />
-
-
       <h4 style={{paddingTop:'10px'}}>Examples:</h4>
       </div>
       <MDXProvider components={shortcodes}>
           <MDXRenderer frontmatter={post.frontmatter}>{post.body}</MDXRenderer>
       </MDXProvider>
+
+       <AdSense currentPath="4" slot="4183897871" />
+       
     </Layout>
   )
 }

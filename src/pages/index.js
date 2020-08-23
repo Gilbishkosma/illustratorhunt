@@ -131,7 +131,7 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
             </div>
         </Banner>
 
-        <AdSense currentPath="1" slot="2018907147" />
+        <AdSense currentPath="1" slot="2018907147" marginTop="10%" />
 
 
         <h1 style={{textAlign:'center',marginTop:'10%'}}>Illustration Sites</h1>
@@ -157,10 +157,8 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
               }) 
            }
            </div>
-           <div style={{display:'flex',justifyContent:'space-around'}}>
            <AdSense currentPath="2" slot="8155589016" />
            <AdSense currentPath="3" slot="8263400228" />
-           </div>
         </Layout>
     </>
 }
