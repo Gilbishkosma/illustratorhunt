@@ -120,7 +120,6 @@ const CustomLink = styled.a`
 `
 
 export default ({data: {allMdx:post,file:bannerimg}}) => {
-    console.log(bannerimg)
     return <>
         <Layout width={1500}>
         <SEO title="Home" description="One Place to look for sites offering free illustrations." />
@@ -131,6 +130,14 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
             <p>One Place to look for sites offering free illustrations.</p>
             </div>
         </Banner>
+        
+    <ins className="adsbygoogle"
+     style={{display:'block',marginTop:'10%'}}
+     data-ad-client="ca-pub-2352333389468696"
+     data-ad-slot="2018907147"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+
         <h1 style={{textAlign:'center',marginTop:'10%'}}>Illustration Sites</h1>
        <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap',marginTop:'60px'}}>
            {
@@ -154,6 +161,13 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
               }) 
            }
            </div>
+
+           <ins className="adsbygoogle"
+     style={{display:'block',marginTop:'10%'}}
+     data-ad-client="ca-pub-2352333389468696"
+     data-ad-slot="2018907147"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
         </Layout>
     </>
 }
