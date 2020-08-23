@@ -5,7 +5,6 @@ import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import styled from "@emotion/styled"
 import SEO from "../components/seo"
-import AdSense from '../components/Adsense'
 
 
 const Tag = styled.p`
@@ -55,9 +54,6 @@ export default ({ data: { mdx: post } }) => {
       <MDXProvider components={shortcodes}>
           <MDXRenderer frontmatter={post.frontmatter}>{post.body}</MDXRenderer>
       </MDXProvider>
-
-       <AdSense currentPath="4" slot="4183897871" />
-       
     </Layout>
   )
 }

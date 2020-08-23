@@ -5,7 +5,6 @@ import { graphql } from "gatsby"
 import Img from 'gatsby-image';
 import {Link} from 'gatsby';
 import SEO from "../components/seo"
-import AdSense from '../components/Adsense'
 
 const Description = styled.div`
     width:100%;
@@ -130,10 +129,6 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
             <p>One Place to look for sites offering free illustrations.</p>
             </div>
         </Banner>
-
-        <AdSense currentPath="1" slot="2018907147" marginTop="10%" />
-
-
         <h1 style={{textAlign:'center',marginTop:'10%'}}>Illustration Sites</h1>
        <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap',marginTop:'60px'}}>
            {
@@ -157,8 +152,6 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
               }) 
            }
            </div>
-           <AdSense currentPath="2" slot="8155589016" />
-           <AdSense currentPath="3" slot="8263400228" />
         </Layout>
     </>
 }
