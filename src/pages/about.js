@@ -19,7 +19,7 @@ const LinkBlock = styled.div`
 export default ({data : {file: image}}) => {
     return <>
             <Layout width={1500}>
-            <SEO title="About Me" description="About me page of Illustration Hunt." />
+            <SEO title="About Me" description="About me page of Illustration Hunt." image={image.childImageSharp.resize} />
                   <div style={{display:'flex',paddingTop:"0px",justifyContent:'center',alignItems:'center',flexWrap:'wrap'}}>
                     <Section>
                     <div>
@@ -55,7 +55,12 @@ export const pageQuery = graphql`
     childImageSharp {
            fluid{
       ...GatsbyImageSharpFluid_tracedSVG
-       } 
+       }
+       resize(width: 1200) {
+        src
+        height
+        width
+      }
      } 
     }
   }

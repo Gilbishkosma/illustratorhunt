@@ -144,9 +144,10 @@ const Heading = styled.h1`
 
 export default ({data: {allMdx:post,file:bannerimg}}) => {
     const [selectedTag,setSelectedTag] = useState(() => ({title:'All',value:'1'}))
+    console.log(bannerimg.childImageSharp.resize);
     return <>
         <Layout width={1500}>
-        <SEO title="Home" />
+        <SEO title="Home" image={bannerimg.childImageSharp.resize} />
         <div style={{display:'flex',justifyContent:'center',marginTop:30}}>
         <Banner>
             <div>
@@ -227,6 +228,11 @@ export const query = graphql`
                 fluid{
            ...GatsbyImageSharpFluid_tracedSVG
             } 
+            resize(width: 1200) {
+                src
+                height
+                width
+              }
           }}
     }
 `
