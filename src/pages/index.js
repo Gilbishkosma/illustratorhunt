@@ -1,9 +1,13 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from '../components/Layout'
 import styled from "@emotion/styled"
 import { graphql } from "gatsby"
 import Img from 'gatsby-image';
 import SEO from "../components/seo"
+
+
+
+const tags = [{title:'All',value:'1',tag:'all'},{title:'Open Source',value:'2',tag:'opensource'},{title:'Free',value:'3',tag:'free'},{title:'Free + paid',value:'4',tag:'free + paid'}]
 
 const Description = styled.a`
     background: #fff;
@@ -25,7 +29,6 @@ const Description = styled.a`
     &:hover{
         box-shadow:0.125rem 1rem 2rem rgb(32 41 49 / 10%);
         transform: translateY(-10px) scale(1.05);
-        ${'' /* cursor:pointer; */}
     }
 
 `
@@ -79,6 +82,37 @@ const Tag = styled.p`
     font-family: Arial, sans-serif;
 `
 
+
+const TagButton = styled.button`
+    margin-right:20px;
+    padding: 10px 20px;
+    background: white;
+    transition: all 0.2s ease-out;
+    border-color: #eca1af;
+    &:hover{
+        cursor:pointer;
+        border-color: #77f9b1 !important;
+    }
+
+    @media(max-width:450px){
+        margin-top:10px;
+    }
+
+`   
+
+const TagButtonContainer = styled.div`
+    margin-top: 80px;
+    margin-bottom: 20px;
+
+    @media(max-width:450px){
+        margin-top:20px;
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+`
+
 const Links = styled.div`
     display:flex;
     justify-content:space-around;
@@ -91,7 +125,6 @@ const Links = styled.div`
     }
 `
 
-
 const HideOnSmallScreen = styled.div`
     display:contents;
     @media(max-width:1105px){
@@ -99,15 +132,26 @@ const HideOnSmallScreen = styled.div`
     }
 `
 
+const Heading = styled.h1`
+    margin-top:50px;
+    font-family:Arial, sans-serif;
+    font-size:3.2rem;
+
+    @media(max-width:450px){
+        margin-top:0px;   
+    }
+`
+
 export default ({data: {allMdx:post,file:bannerimg}}) => {
+    const [selectedTag,setSelectedTag] = useState(() => ({title:'All',value:'1'}))
     return <>
         <Layout width={1500}>
         <SEO title="Home" description="One Place to look for sites offering free illustrations." />
         <div style={{display:'flex',justifyContent:'center',marginTop:30}}>
         <Banner>
             <div>
-            <h1 style={{marginTop:'50px',fontFamily:'Arial, sans-serif',fontSize:'3.2rem'}}>Illustration Hunt</h1>
-            <p style={{maxWidth:460,marginTop:30}}>More than 30+ sites to look for free illustrations. New Illustration websites are added every day. In short one place to look for sites offering free illustrations.</p>
+            <Heading>Illustration Hunt</Heading>
+            <p style={{maxWidth:460,marginTop:30}}>More than 30+ sites to look for free illustrations. New Illustration websites are added every day. In short one place to look for sites offering free illustrations.</p> 
             <p></p>
             </div>
             <HideOnSmallScreen>
@@ -117,9 +161,24 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
         </Banner>
         </div>
 
-       <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap',marginTop:'100px'}}>
+        <div style={{display:'flex',justifyContent:'center'}}>
+        <TagButtonContainer>{tags?.map((item,index) => (
+                <TagButton 
+                type="button" 
+                style={{borderColor: selectedTag?.value === item?.value ? '#77f9b1' : '#eca1af'}}
+                onClick={event => setSelectedTag(item)}
+                >
+                {item?.title}
+                </TagButton>
+                )
+                )}
+        </TagButtonContainer>
+        </div>
+        
+
+       <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap'}}>
            {
-              post.nodes.map((item,index) => {
+              post?.nodes?.filter(item => selectedTag?.value === '1' || item?.frontmatter.tags[0] === selectedTag?.tag)?.map((item,index) => {
                   return <Description href={item.frontmatter.siteUrl} key={index} target="_blank">
                             <Content>
                             <h4 style={{margin:5,fontFamily:'Arial, sans-serif',opacity:0.85}}>{item.frontmatter.title}</h4>

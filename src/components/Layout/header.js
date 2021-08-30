@@ -14,16 +14,42 @@ const NavLink = styled(Link)`
       padding:0.25rem;
       text-decoration:none;
       background-image:none;
+      transition: all 0.2s ease-out;
+      margin-left:10px;
       
       &.current-page {
           border-bottom: 2px solid #222;
       }
 
-      &:last-of-type{
-          margin-right:0;
-      }
 
-      `;
+      &:hover{
+        border-bottom: 2px solid #222;
+      }
+    
+    `;
+
+const AnchorTag = styled.a`
+      color:black;
+      font-size:1rem;
+      line-height:1;
+      margin:0 0.5rem 0 0;
+      text-shadow: 0 0 white;
+      text-decoration:none;
+      background-image:none;
+      margin-right:0;
+      margin-left:10px;
+      border: 0.5px solid #9e98984f;
+      background-color: #ffebca;
+      padding:10px;
+      border-radius:5px;
+      transition: all 0.2s ease-out;
+      box-shadow:0.125rem 1rem 2rem rgb(32 41 49 / 2%);
+
+      &:hover{
+       box-shadow:0.125rem 1rem 2rem rgb(32 41 49 / 10%);
+       transform: translateY(-5px) scale(1);
+      }
+`
 
 const Header = () => {
   const data = useStaticQuery(graphql`
@@ -44,7 +70,7 @@ const Header = () => {
         display:flex;
         justify-content:space-between;
         flex-wrap:wrap;
-        padding: 0.5rem calc((100vw - 1000px) / 2); /* for header both side equal margin,this will be of equal width of main */
+        padding: 0.5rem calc((100vw - 1500px) / 2); /* for header both side equal margin,this will be of equal width of main */
     `}
     >    
         <div style={{display:"flex"}}>
@@ -54,6 +80,7 @@ const Header = () => {
         <nav css={css`margin-top:0;display:flex;flex-wrap:wrap;align-items:center`}>
             <NavLink to="/" activeClassName="current-page">Home</NavLink>
             <NavLink to="/about" activeClassName="current-page">About</NavLink>
+            <AnchorTag href="https://forms.gle/8XxVutCeW3zUQkcn7" target="_blank">Add Your Site</AnchorTag>
         </nav>
     </header>
 }
