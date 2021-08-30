@@ -34,7 +34,7 @@ export default ({data : {file: image}}) => {
                         </LinkBlock>
                         <LinkBlock>
                         <img src="https://img.icons8.com/color/48/000000/web.png" alt=""/>
-                        <a href="https://gil20.me" style={{marginLeft:"10px",marginTop:"10px"}}>Personal Site</a>
+                        <a href="https://gilbish.dev" style={{marginLeft:"10px",marginTop:"10px"}}>Personal Site</a>
                         </LinkBlock>
                         <LinkBlock>
                         <img src="https://img.icons8.com/color/48/000000/stackoverflow.png" alt=""/>

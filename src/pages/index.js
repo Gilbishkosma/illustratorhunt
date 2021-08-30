@@ -3,72 +3,63 @@ import Layout from '../components/Layout'
 import styled from "@emotion/styled"
 import { graphql } from "gatsby"
 import Img from 'gatsby-image';
-import {Link} from 'gatsby';
 import SEO from "../components/seo"
 
-const Description = styled.div`
+const Description = styled.a`
+    background: #fff;
+    padding:10px;
+    border: 0.1px solid #80808024;
+    border-radius:5px;
+    margin:10px;
+    margin-top: 20px;
+    max-width:350px;
+    max-height:400px;
     width:100%;
-    max-width:450px;
-    height:280px;
-    background-color:#fff;
-    border:1px solid #e1e1e1;
-    margin:50px 50px 100px 50px;
-    &:hover{
-        -webkit-box-shadow: 10px 10px 14px 0px rgba(196,190,196,1);
-        -moz-box-shadow: 10px 10px 14px 0px rgba(196,190,196,1);
-        box-shadow: 10px 10px 14px 0px rgba(196,190,196,1);
-    }
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    box-shadow:0.125rem 1rem 2rem rgb(32 41 49 / 5%);
+    transition: all 0.2s ease-out;
 
-    @media(max-width:450px){
-        margin:50px 20px 100px 20px;
-        height:330px;
-        &:first-of-type{
-            margin-top:100px;
-        }
+    &:hover{
+        box-shadow:0.125rem 1rem 2rem rgb(32 41 49 / 10%);
+        transform: translateY(-10px) scale(1.05);
+        ${'' /* cursor:pointer; */}
     }
 
 `
 const Banner = styled.div`
     display:flex;
-    flex-direction:column;
-    justify-content:center;
+    justify-content:space-around;
     align-items:center;
-    height:calc(100vh - 150px);
     flex-wrap:wrap;
+    width: 100%;
+    max-width:1500px;
+    padding:10px;
     `
 
-const Content = styled.div`
-    position:relative;
-    bottom:400px;
-    height:100%;
-    width:220px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    left:11em;
-
-    @media(max-width:450px){
-     bottom:150px;
-     width:inherit;
-     left:0px;   
+const BannerImg = styled(Img)`
+    max-width:500px;
+    width:100%;
+    max-height:500;
+    box-shadow:0.125rem 1rem 2rem rgb(32 41 49 / 10%);
+    transition: all 0.2s ease-out;
+    &:hover{
+        box-shadow:0.125rem 1rem 2rem rgb(32 41 49 / 15%);
+        transform: translateY(-10px) scale(1.05);
     }
 `
 
+const Content = styled.div`
+
+`
+
 const ImageCard = styled(Img)`
-    width:350px;
-    height:350px;
-    background-size:contain;
-    background-repeat:no-repeat;
-    background-position:center;
     position:relative;
-    top:-50px;
-    left:-90px;
     @media(max-width:450px){
-        top:-100px;
         left:50%;
         right:50%;
-        width:250px;
-        height:200px;
         transform:translate(-50%);   
     }
 `
@@ -76,25 +67,16 @@ const ImageCard = styled(Img)`
 const Tags = styled.div`
     display:flex;
     flex-wrap:wrap;
-    justify-content:center;
-    width:180px;
-    margin-top:30px;
-    
-    @media(max-width:450px){
-        width:100%;
-        justify-content:center;   
-    }
+    margin-top:5px;
+    font-size:0.7em;
 `
 
 const Tag = styled.p`
-    margin:5px;
-    padding:5px;
-    border-radius:10px;
-    border:1px solid #81dfe3;
     color:black;
-    &:hover{
-        border:1px solid #3481fb;
-    }
+    padding-left:5px;
+    margin-bottom:0px;
+    opacity:0.7;
+    font-family: Arial, sans-serif;
 `
 
 const Links = styled.div`
@@ -109,12 +91,11 @@ const Links = styled.div`
     }
 `
 
-const CustomLink = styled.a`
-    color:#1ca086;
-    background-color:#fff;
-    background-image:none;
-    &:hover{
-        background-image:linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, #1ca086 1px, #1ca086 2px, rgba(0, 0, 0, 0) 2px);
+
+const HideOnSmallScreen = styled.div`
+    display:contents;
+    @media(max-width:1105px){
+        display:none;
     }
 `
 
@@ -122,36 +103,41 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
     return <>
         <Layout width={1500}>
         <SEO title="Home" description="One Place to look for sites offering free illustrations." />
+        <div style={{display:'flex',justifyContent:'center',marginTop:30}}>
         <Banner>
-            <Img alt="" fluid={bannerimg.childImageSharp.fluid} style={{maxWidth:'500px',width:'100%'}} />
             <div>
-            <h1 style={{marginTop:'10px',textAlign:'center'}}>Illustration Hunt</h1>
-            <p>One Place to look for sites offering free illustrations.</p>
+            <h1 style={{marginTop:'50px',fontFamily:'Arial, sans-serif',fontSize:'3.2rem'}}>Illustration Hunt</h1>
+            <p style={{maxWidth:460,marginTop:30}}>More than 30+ sites to look for free illustrations. New Illustration websites are added every day. In short one place to look for sites offering free illustrations.</p>
+            <p></p>
             </div>
+            <HideOnSmallScreen>
+            <BannerImg alt="Hero image" fluid={bannerimg.childImageSharp.fluid} />
+            </HideOnSmallScreen>
+            
         </Banner>
-        <h1 style={{textAlign:'center',marginTop:'10%'}}>Illustration Sites</h1>
-       <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap',marginTop:'60px'}}>
+        </div>
+
+       <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap',marginTop:'100px'}}>
            {
               post.nodes.map((item,index) => {
-                  return <Description key={index}>
-                            <ImageCard fluid={item.frontmatter.show.childImageSharp.fluid} alt="" />
+                  return <Description href={item.frontmatter.siteUrl} key={index} target="_blank">
                             <Content>
-                            <h2 style={{marginTop:'70px'}}>{item.frontmatter.title}</h2>
+                            <h4 style={{margin:5,fontFamily:'Arial, sans-serif',opacity:0.85}}>{item.frontmatter.title}</h4>
                                <Tags>
                                 {
                                    item.frontmatter.tags.map((tag,index) => {
                                    return <Tag key={index}>{tag}</Tag>  
                                    }) 
                                 }  
-                                </Tags>
-                                <Links> 
-                                <CustomLink href={item.frontmatter.slug}>Showcase -></CustomLink> 
-                                </Links>                            
+                                </Tags>                                                           
                             </Content>
+                             <ImageCard fluid={item.frontmatter.show.childImageSharp.fluid} alt="" />
                          </Description>
+                        
               }) 
            }
            </div>
+
         </Layout>
     </>
 }
