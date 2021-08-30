@@ -10,7 +10,7 @@ module.exports = {
     description: `More than 30+ sites to look for free illustrations. New Illustration websites are added every day. In short one place to look for sites offering free illustrations.`,
     author: `Gilbish Kosma`,
     url: "https://illustrationhunt.com",
-    image: "src/images/1.png",
+    image: "/images/1.png",
   },
   plugins: [
       `gatsby-plugin-emotion`,

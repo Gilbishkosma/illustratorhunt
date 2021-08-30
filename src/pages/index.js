@@ -146,7 +146,7 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
     const [selectedTag,setSelectedTag] = useState(() => ({title:'All',value:'1'}))
     return <>
         <Layout width={1500}>
-        <SEO title="Home" description="One Place to look for sites offering free illustrations." />
+        <SEO title="Home" />
         <div style={{display:'flex',justifyContent:'center',marginTop:30}}>
         <Banner>
             <div>
