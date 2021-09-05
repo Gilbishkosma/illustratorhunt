@@ -86,12 +86,12 @@ const Tag = styled.p`
 const TagButton = styled.button`
     margin-right:20px;
     padding: 10px 20px;
-    background: white;
+    background: #fcebca;
     transition: all 0.2s ease-out;
-    border-color: #eca1af;
+    border: 0px solid black;
     &:hover{
         cursor:pointer;
-        border-color: #77f9b1 !important;
+        transform: translateY(-10px) scale(1.05);
     }
 
     @media(max-width:450px){
@@ -144,7 +144,6 @@ const Heading = styled.h1`
 
 export default ({data: {allMdx:post,file:bannerimg}}) => {
     const [selectedTag,setSelectedTag] = useState(() => ({title:'All',value:'1'}))
-    console.log(bannerimg.childImageSharp.resize);
     return <>
         <Layout width={1500}>
         <SEO title="Home" image={bannerimg.childImageSharp.resize} />
@@ -166,8 +165,8 @@ export default ({data: {allMdx:post,file:bannerimg}}) => {
         <TagButtonContainer>{tags?.map((item,index) => (
                 <TagButton 
                 type="button" 
-                style={{borderColor: selectedTag?.value === item?.value ? '#77f9b1' : '#eca1af'}}
                 onClick={event => setSelectedTag(item)}
+                style={{backgroundColor : item?.value === selectedTag?.value ? 'rgb(201 255 225)' : '#fcebca'}}
                 >
                 {item?.title}
                 </TagButton>
