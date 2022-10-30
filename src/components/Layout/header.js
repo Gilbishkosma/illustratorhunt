@@ -80,7 +80,6 @@ const Header = () => {
         <nav css={css`margin-top:0;display:flex;flex-wrap:wrap;align-items:center`}>
             <NavLink to="/" activeClassName="current-page">Home</NavLink>
             <NavLink to="/about" activeClassName="current-page">About</NavLink>
-            <AnchorTag href="https://forms.gle/8XxVutCeW3zUQkcn7" target="_blank">Add Your Site</AnchorTag>
         </nav>
     </header>
 }
