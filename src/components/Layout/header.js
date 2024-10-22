@@ -74,7 +74,7 @@ const Header = () => {
     `}
     >    
         <div style={{display:"flex"}}>
-        <Img fluid={data.file.childImageSharp.fluid} alt="" style={{padding:'0px',width:'70px'}} />
+        <iframe style="border: none,padding:0px" width="70" height="70" src="https://rive.app/s/aV0n684_IEaxGq3UnujNtA/embed" allowfullscreen allow="autoplay"></iframe>
         <NavLink to="/" style={{alignSelf:'center',padding:'0px'}}>IllustrationHunt</NavLink>
         </div>
         <nav css={css`margin-top:0;display:flex;flex-wrap:wrap;align-items:center`}>
