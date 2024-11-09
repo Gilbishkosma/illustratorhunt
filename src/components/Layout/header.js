@@ -52,7 +52,7 @@ const AnchorTag = styled.a`
 
 const Header = () => {
   const { rive, RiveComponent } = useRive({
-    src: "/illustrationhunt.riv",
+    src: "/illustrationhunt-logo.riv",
     stateMachines: "logo",
     autoplay: true,
   })
